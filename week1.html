@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<header>
+    <h1>Week 1</h1>
+    <h2>Literature Review</h2>
+
+    <nav>
+      <menu>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="week1.html">Week 1</a></li>
+      </menu>
+    </nav>
+</header>
+
+<body>
+    <p><a href="https://dl.acm.org/doi/10.5555/3722479.3722528">May et al.</a> approach a similar problem. They record audio, transcribe it, use NLP to convert English sentences to ASL glosses, then map the ASL sentence to MediaPipe. Their future work excludes/fingerspells ambiguous vocabulary. They present a flowchart diagram (Figure 3) displaying their workflow, which helps visualize exactly where the problem of ambiguity occurs.</p>
+    <p>Now, I must figure out how to teach the model to differentiate diverse sign-definition pairs.</p>
+    <p><a href="https://arxiv.org/pdf/1003.1141">Turner and Pantel</a> suggest Vector Space Models (VSMs) for semantic processing, claiming that they are particularly good at comparing similarity between individual words, phrases, and text. The entries of an VSM are derived from the number of times that a given word appears in a given context which are used as clues for uncovering semantic information. They present the *statistical semantics hypothesis*, which states that statistical patterns of diction can help understand meaning. I hope to apply this hypothesis to my sign look-up tool.</p>
+    <p><a href="https://aclanthology.org/D19-1355.pdf#:~:text=studies%20have%20shown%20the%20effectiveness,based%20models%20for%20WSD">Huang et al.</a> introduce an approach to Word Sense Disambiguation (WSD) using BERT by framing WSD as a sentence-pair classification problem, creating pairs of the target word's context and its potential sense definitions (glosses).</p>
+    <p>Next week, I plan to explore how VSMs and BERT work in practice. Specifically, I want to understand if they could work together, or if they function independently (i.e. does using BERT make using VSMs unnecessary?). If they work independently, I want to explore which is a better path to follow for my research. </p>
+</body>
+</html>
