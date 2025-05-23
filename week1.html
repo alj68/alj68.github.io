@@ -14,10 +14,18 @@
 </header>
 
 <body>
-    <p><a href="https://dl.acm.org/doi/10.5555/3722479.3722528">May et al.</a> approach a similar problem. They record audio, transcribe it, use NLP to convert English sentences to ASL glosses, then map the ASL sentence to MediaPipe. Their future work excludes/fingerspells ambiguous vocabulary. They present a flowchart diagram (Figure 3) displaying their workflow, which helps visualize exactly where the problem of ambiguity occurs.</p>
-    <p>Now, I must figure out how to teach the model to differentiate diverse sign-definition pairs.</p>
-    <p><a href="https://arxiv.org/pdf/1003.1141">Turner and Pantel</a> suggest Vector Space Models (VSMs) for semantic processing, claiming that they are particularly good at comparing similarity between individual words, phrases, and text. The entries of an VSM are derived from the number of times that a given word appears in a given context which are used as clues for uncovering semantic information. They present the *statistical semantics hypothesis*, which states that statistical patterns of diction can help understand meaning. I hope to apply this hypothesis to my sign look-up tool.</p>
-    <p><a href="https://aclanthology.org/D19-1355.pdf#:~:text=studies%20have%20shown%20the%20effectiveness,based%20models%20for%20WSD">Huang et al.</a> introduce an approach to Word Sense Disambiguation (WSD) using BERT by framing WSD as a sentence-pair classification problem, creating pairs of the target word's context and its potential sense definitions (glosses).</p>
-    <p>Next week, I plan to explore how VSMs and BERT work in practice. Specifically, I want to understand if they could work together, or if they function independently (i.e. does using BERT make using VSMs unnecessary?). If they work independently, I want to explore which is a better path to follow for my research. </p>
+  <p><a href="https://dl.acm.org/doi/10.5555/3722479.3722528">May et al.</a> approach a similar problem. They record audio, transcribe it, use NLP to convert English sentences to ASL glosses, then map the ASL sentence to MediaPipe. Their future work excludes/fingerspells ambiguous vocabulary. They present a flowchart diagram (Figure 3) displaying their workflow, which helps visualize exactly where the problem of ambiguity occurs [1]. </p>
+  <p>Now, I must figure out how to teach the model to differentiate diverse sign-definition pairs.</p>
+  <p><a href="https://arxiv.org/pdf/1003.1141">Turner and Pantel</a> suggest Vector Space Models (VSMs) for semantic processing, claiming that they are particularly good at comparing similarity between individual words, phrases, and text. The entries of an VSM are derived from the number of times that a given word appears in a given context which are used as clues for uncovering semantic information. They present the *statistical semantics hypothesis*, which states that statistical patterns of diction can help understand meaning. I hope to apply this hypothesis to my sign look-up tool [2]. </p>
+  <p><a href="https://aclanthology.org/D19-1355.pdf#:~:text=studies%20have%20shown%20the%20effectiveness,based%20models%20for%20WSD">Huang et al.</a> introduce an approach to Word Sense Disambiguation (WSD) using BERT by framing WSD as a sentence-pair classification problem, creating pairs of the target word's context and its potential sense definitions (glosses) [3]. </p>
+  <p>Next week, I plan to explore how VSMs and BERT work in practice. Specifically, I want to understand if they could work together, or if they function independently (i.e. does using BERT make using VSMs unnecessary?). If they work independently, I want to explore which is a better path to follow for my research. </p>
 </body>
+
+<footer>
+  <p>[1] James May, Kyle Brennan, and Stefanie Amiruzzaman. English to American Sign Language: An AI-Based Approach.</p>
+  <p>[2] P. D. Turney and P. Pantel. 2010. From Frequency to Meaning: Vector Space Models of Semantics. jair 37, (February 2010), 141–188. https://doi.org/10.1613/jair.2934</p>
+  <p>[3] Luyao Huang, Chi Sun, Xipeng Qiu, and Xuanjing Huang. 2019. GlossBERT: BERT for Word Sense Disambiguation with Gloss Knowledge. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), 2019. Association for Computational Linguistics, Hong Kong, China. https://doi.org/10.18653/v1/d19-1355</p>
+</footer>
 </html>
+
+May, Brennan, and Amiruzzaman, “English to American Sign Language: An AI-Based Approach.”
