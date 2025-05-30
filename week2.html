@@ -15,6 +15,7 @@
 </header>
 
 <body>
+    <h2>Updated Literature Review</h2>
 <p>To organize my lit review clearly, I've developed the following list that walks through each important concept (including citations) then analyzes and builds upon them.</p>
     <ul>
         <li>Plenty of work deals with bimodal communication. However, many do not explicitly mention Word Sense Disambiguation (WSD) as a specific task performed within their current NLP pipeline. They describe processing English "tokens" and mapping them, but the mechanism for handling ambiguous English words (like "bank" meaning a financial institution or a river side) before mapping is not detailed (May et al.)</li>
@@ -31,6 +32,8 @@
         <li>The GlossBERT approach treats WSD as a sentence-pair classification problem by constructing "context-gloss pairs" using sense definitions (glosses) from resources like WordNet. (Huang et al.) This method involves pairing the sentence containing the ambiguous word (context) with the glosses of its potential senses. "We construct context-gloss pairs from glosses of all possible senses (in WordNet) of the target word, thus treating WSD task as a sentence-pair classification problem." (Huang et al.) GlossBERT models, particularly those utilizing weak supervision signals to highlight the target word, have demonstrated state-of-the-art results on WSD benchmarks. (Huang et al.)</li>
         <li>The English input text must first be processed to determine the intended meaning. Given an English sentence, GlossBERT can analyze each potentially ambiguous word within that sentence and identify the specific sense of the English word that is intended in that particular sentence. This precise sense information can then be passed to the subsequent translation steps, which are responsible for converting the English meaning into the appropriate ASL signs and grammatical structure. An English-to-ASL system would need to know which sense is meant to select the correct ASL equivalent. GlossBERT provides this disambiguation for the English source text (Huang et al.).</li>
     </ul>
+    <h2>Potential Research Question</h2>
+    <p>Can GlossBERT solve the English-to-ASL Word Sense Disambiguation (WSD) problem?</p>
  </body>
 
 <br>
