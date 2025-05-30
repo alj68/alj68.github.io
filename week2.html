@@ -2,31 +2,45 @@
 <html lang="en">
 
 <header>
-    <h1>Week 1</h1>
-    <h2>Literature Review</h2>
+    <h1>Week 2</h1>
+    <h2>Updated Literature Review & Research Question Draft</h2>
 
     <nav>
       <menu>
         <li><a href="index.html">Home</a></li>
         <li><a href="week1.html">Week 1</a></li>
+        <li><a href="week2.html">Week 2</a></li>
       </menu>
     </nav>
 </header>
 
 <body>
-  <p><a href="https://dl.acm.org/doi/10.5555/3722479.3722528">May et al.</a> approach a similar problem. They record audio, transcribe it, use NLP to convert English sentences to ASL glosses, then map the ASL sentence to MediaPipe. Their future work excludes/fingerspells ambiguous vocabulary. They present a flowchart diagram (Figure 3) displaying their workflow, which helps visualize exactly where the problem of ambiguity occurs [1]. </p>
-  <p>Now, I must figure out how to teach the model to differentiate diverse sign-definition pairs.</p>
-  <p><a href="https://arxiv.org/pdf/1003.1141">Turner and Pantel</a> suggest Vector Space Models (VSMs) for semantic processing, claiming that they are particularly good at comparing similarity between individual words, phrases, and text. The entries of an VSM are derived from the number of times that a given word appears in a given context which are used as clues for uncovering semantic information. They present the *statistical semantics hypothesis*, which states that statistical patterns of diction can help understand meaning. I hope to apply this hypothesis to my sign look-up tool [2]. </p>
-  <p><a href="https://aclanthology.org/D19-1355.pdf#:~:text=studies%20have%20shown%20the%20effectiveness,based%20models%20for%20WSD">Huang et al.</a> introduce an approach to Word Sense Disambiguation (WSD) using BERT by framing WSD as a sentence-pair classification problem, creating pairs of the target word's context and its potential sense definitions (glosses) [3]. </p>
-  <p>Next week, I plan to explore how VSMs and BERT work in practice. Specifically, I want to understand if they could work together, or if they function independently (i.e. does using BERT make using VSMs unnecessary?). If they work independently, I want to explore which is a better path to follow for my research. </p>
-</body>
+<p>To organize my lit review clearly, I've developed the following list that walks through each important concept (including citations) then analyzes and builds upon them.</p>
+    <dl>
+        <dt>Plenty of work deals with bimodal communication. However, many do not explicitly mention Word Sense Disambiguation (WSD) as a specific task performed within their current NLP pipeline. They describe processing English "tokens" and mapping them, but the mechanism for handling ambiguous English words (like "bank" meaning a financial institution or a river side) before mapping is not detailed (May et al.)</dt>
+        <dt>Ambiguity in Sign Languages: Sign languages, despite being visual-gestural, exhibit various forms of ambiguity. • Ambiguity in Sign Languages: Sign languages, despite being visual-gestural, exhibit various forms of ambiguity. Types of Ambiguity in Sign Languages include: </dt>
+        <dd>Lexical Ambiguity: Similar to spoken languages, many manual signs can have multiple meanings (homonyms). For example, in German Sign Language (DGS), the same manual sign can mean 'marmalade' or 'color'. (Quer & Steinbach) In American Sign Language (ASL), the same manual sign can mean 'hungry' or 'wish'.</dd>
+        <dt>"Word Sense Disambiguation (WSD) aims to find the exact sense of an ambiguous word in a particular context." For example, the English word 'bank' can mean "financial institution", "river side", or "reservoir". (Pal & Saha)</dt>
+        <dd>WSD in English-to-ASL translation is important for new learners of sign language primarily because it contributes to the accuracy of the translation system they might use. In an English-to-ASL translation system, understanding the precise meaning of English words before attempting to translate them into ASL is crucial to ensure the output conveys the intended message accurately. (Pal & Saha)</dd>
+        <dd>New learners are developing their proficiency in ASL and often rely on tools or communication aids to interact with Deaf/HoH individuals or to practice their skills. (Xu et al.) An English-to-ASL translation system is one such tool that can help bridge the communication gap. (May et al.) If this system provides inaccurate translations due to poor WSD, it hinders effective communication for the learner.</dd>
+        <dt>Approaches to WSD: WSD methods are broadly categorized into:</dt>
+        <dd>Knowledge-based: These methods utilize external lexical resources such as dictionaries, sense inventories (like WordNet), and thesauri. The Lesk algorithm, which relies on the overlap of dictionary definitions, is a foundational knowledge-based approach. Semantic similarity measures are also used, based on the principle that related words share common contexts. (Pal & Saha)</dd>
+        <dd>Supervised: These methods train classifiers on manually sense-tagged corpora. (Pal & Saha) Traditional supervised methods often train a dedicated classifier for each ambiguous word (word expert methods). (Huang et al.) Examples of supervised techniques include Decision Lists, Decision Trees, Naive Bayes classifiers, Neural Networks, k-Nearest Neighbors (k-NN), and Support Vector Machines (SVM). (Pal & Saha)</dd>
+        <dd>Unsupervised: These methods discover word senses from text automatically without relying on pre-tagged data. Techniques include context clustering, word clustering, co-occurrence graphs, and spanning tree based approaches. (Pal & Saha)</dd>
+        <dt>Leveraging Gloss Knowledge with BERT: Recent advancements in neural networks, particularly pre-trained language models like BERT, have significantly impacted WSD.</dt>
+        <dd>The GlossBERT approach treats WSD as a sentence-pair classification problem by constructing "context-gloss pairs" using sense definitions (glosses) from resources like WordNet. (Huang et al.) This method involves pairing the sentence containing the ambiguous word (context) with the glosses of its potential senses. "We construct context-gloss pairs from glosses of all possible senses (in WordNet) of the target word, thus treating WSD task as a sentence-pair classification problem." (Huang et al.) GlossBERT models, particularly those utilizing weak supervision signals to highlight the target word, have demonstrated state-of-the-art results on WSD benchmarks. (Huang et al.)</dd>
+        <dd>The English input text must first be processed to determine the intended meaning. Given an English sentence, GlossBERT can analyze each potentially ambiguous word within that sentence and identify the specific sense of the English word that is intended in that particular sentence. This precise sense information can then be passed to the subsequent translation steps, which are responsible for converting the English meaning into the appropriate ASL signs and grammatical structure. An English-to-ASL system would need to know which sense is meant to select the correct ASL equivalent. GlossBERT provides this disambiguation for the English source text (Huang et al.).</dd>
+    </dl>
+ </body>
 
 <br>
 <hr>
 
 <footer>
-  <p>[1] James May, Kyle Brennan, and Stefanie Amiruzzaman. English to American Sign Language: An AI-Based Approach.</p>
-  <p>[2] P. D. Turney and P. Pantel. 2010. From Frequency to Meaning: Vector Space Models of Semantics. jair 37, (February 2010), 141–188. https://doi.org/10.1613/jair.2934</p>
-  <p>[3] Luyao Huang, Chi Sun, Xipeng Qiu, and Xuanjing Huang. 2019. GlossBERT: BERT for Word Sense Disambiguation with Gloss Knowledge. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), 2019. Association for Computational Linguistics, Hong Kong, China. https://doi.org/10.18653/v1/d19-1355</p>
+  <p>[1] "Huang et al. - 2019 - GlossBERT BERT for Word Sense Disambiguation with Gloss Knowledge.pdf" (Huang et al.)</p>
+  <p>[2] "May et al. - English to American Sign Language An AI-Based Approach.pdf" (May et al.)</p>
+  <p>[3] "Quer and Steinbach - 2015 - Ambiguities in sign languages.pdf" (Quer & Steinbach)</p>
+  <p>[4] "Ranjan Pal and Saha - 2015 - Word Sense Disambiguation A Survey.pdf" (Pal & Saha)</p>
+  <p>[5] "Xu et al. - Automatic Gloss Dictionary for Sign Language Learners.pdf" (Xu et al.)</p>
 </footer>
 </html>
